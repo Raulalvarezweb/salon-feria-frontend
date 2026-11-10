@@ -5,7 +5,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/palacio-de-ferias/browser",
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://RENDER_BACKEND_URL/:path*" },
+    { "source": "/api/:path*", "destination": "https://palacio-ferias-api.onrender.com/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
