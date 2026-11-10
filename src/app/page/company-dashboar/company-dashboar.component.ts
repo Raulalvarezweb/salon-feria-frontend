@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CompanyService } from '../../services/information.service';
 import { Router, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { environment } from '../../../environments/environment';
 
 
 /**
@@ -57,7 +58,7 @@ export class CompanyDashboarComponent {
         if (response.success && response.data) {
           // Reemplazar las URLs con el proxy
           this.slides = response.data.map((file: any) => ({
-            url: `https://backend-node-wpf9.onrender.com/proxy?url=${file.url.fileUrl}`, // Usar el proxy
+            url: `${environment.apiUrl}/proxy?url=${file.url.fileUrl}`, // Usar el proxy
           }));
         } else {
           console.error('Error al obtener los stands:', response.message);

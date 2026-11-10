@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://backend-node-wpf9.onrender.com/design'
+  private apiUrl = `${environment.apiUrl}/design`
 
   /**
  * @method addDesign

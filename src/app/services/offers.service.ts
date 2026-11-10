@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
 import { Offer } from '../../models/offers/offers.model';
+import { environment } from '../../environments/environment';
 
 /**
  * @class OffersService
@@ -17,7 +18,7 @@ export class OffersService {
    * @type {string}
    * @private
    */
-  private apiUrl = 'https://backend-node-wpf9.onrender.com/offers';
+  private apiUrl = `${environment.apiUrl}/offers`;
 
   /**
    * Constructor del servicio OffersService.

@@ -17,6 +17,7 @@ import { Models } from '../../../../models/models.model';
 import { catchError, Observable, of, retry, tap } from 'rxjs';
 import { Usuario } from '../../../../models/users.model';
 import { UserService } from '../../../services/users.service';
+import { environment } from '../../../../environments/environment';
 
 /**
  * Componente `StandDesingComponent`
@@ -117,7 +118,7 @@ export class StandDesingComponent implements OnInit {
       next: (response) => {
         if (response.success && response.data) {
           this.standImages = response.data.map((stand: any) =>
-            `https://backend-node-wpf9.onrender.com/proxy?url=${stand.url.fileUrl}`
+            `${environment.apiUrl}/proxy?url=${stand.url.fileUrl}`
           );
           this.standConfigs = response.data;
         } else {
@@ -133,7 +134,7 @@ export class StandDesingComponent implements OnInit {
       next: (response) => {
         if (response.success && response.data) {
           this.receptionistImages = response.data.map((model: any) =>
-            `https://backend-node-wpf9.onrender.com/proxy?url=${model.url.fileUrl}`
+            `${environment.apiUrl}/proxy?url=${model.url.fileUrl}`
           );
           this.recepConfigs = response.data;
         } else {
@@ -154,7 +155,7 @@ export class StandDesingComponent implements OnInit {
   }
 
   selectStand(standUrl: string): void {
-    const originalUrl = standUrl.replace('https://backend-node-wpf9.onrender.com/proxy?url=', '');
+    const originalUrl = standUrl.replace(`${environment.apiUrl}/proxy?url=`, '');
     const selectedStand = this.standConfigs.find((stand: any) => stand.url.fileUrl === originalUrl);
 
     if (selectedStand) {
@@ -168,7 +169,7 @@ export class StandDesingComponent implements OnInit {
   }
 
   selectReceptionist(receptionist: string): void {
-    const originalUrl = receptionist.replace('https://backend-node-wpf9.onrender.com/proxy?url=', '');
+    const originalUrl = receptionist.replace(`${environment.apiUrl}/proxy?url=`, '');
     const selectedReceptionist = this.recepConfigs.find((model: any) => model.url.fileUrl === originalUrl);
 
     if (selectedReceptionist) {
