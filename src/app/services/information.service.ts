@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
 import { Company, selection } from '../../models/company.model';
+import { environment } from '../../environments/environment';
 
 /**
  * @class CompanyService
@@ -15,7 +16,7 @@ export class CompanyService {
    * @property {string} apiUrl - URL base de la API para la gestión de empresas.
    * @private
    */
-  private apiUrl = 'https://backend-node-wpf9.onrender.com/information';
+  private apiUrl = `${environment.apiUrl}/information`;
 
   /**
    * @constructor

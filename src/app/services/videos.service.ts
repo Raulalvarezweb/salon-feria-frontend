@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 /**
  * @class VideoService
@@ -15,7 +16,7 @@ export class VideoService {
    * @property {string} apiUrl - URL base de la API para la gestión de videos.
    * @private
    */
-  private apiUrl = 'https://backend-node-wpf9.onrender.com/video';
+  private apiUrl = `${environment.apiUrl}/video`;
 
   /**
    * @constructor
